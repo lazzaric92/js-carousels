@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Tahoma, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1{
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+main > section{
+    margin-bottom: 3rem;
+}

@@ -1,0 +1,32 @@
+#slider .carousel,
+#slider .slider-arrow,
+#slider .slider-container{
+    display:flex;
+    align-items: center;
+}
+
+#slider h2 {
+    margin-bottom: 1.5rem;
+}
+
+#slider .slider-arrow span {
+    font-size: 1.2rem;
+    margin: 0 .5rem;
+}
+
+#slider .carousel{
+    justify-content: center;
+}
+
+/* #slider .slider-container{
+    max-width: 900px;
+} */
+
+#slider .slider-container img{
+    width: 900px;
+    display: none;
+}
+
+#slider .slider-container img.active{
+    display: block;
+}
