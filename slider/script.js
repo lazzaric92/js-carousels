@@ -7,7 +7,7 @@ const prevBtn = sliderEl.querySelector('span.prev-btn');
 const forwBtn = sliderEl.querySelector('span.forw-btn');
 
 // ! VARIABLES
-let currentIndex = 1;
+let activeIndex;
 const slides = [
     {
         'url' : "img/01.png",
@@ -36,37 +36,77 @@ const slides = [
 ];
 
 
-function showImages(){
-    currentIndex = 1;
-}
-// append the image with the same index as the current one
+// create the images and set as active the first
 slides.forEach((obj, index) => {
     const imgEl = document.createElement('img');
     imgEl.setAttribute('src', obj['url']);
     imgEl.setAttribute('alt', obj['alt']);
     container.appendChild(imgEl);
-    if(index === currentIndex && !imgEl.classList.contains('active')){
+    if(index === 0){
         imgEl.classList.add('active');
-    } else if(index !== currentIndex && imgEl.classList.contains('active')){
-        imgEl.classList.remove('active');
     }
 })
 
 forwBtn.addEventListener('click', function(){
-    nextSlide(currentIndex, slides);
+    nextSlide();
+});
+
+prevBtn.addEventListener('click', function(){
+    prevSlide();
 });
 
 
+// ! FUNCTIONS
+// --> function to set the index of the active image as the current activeIndex
 /**
- * 
- * @param {*} index the var index (eg. currentIndex)
- * @param {*} elementList the array or object with the elements that should be displayed
+ * Function to set the index of the active image as the current activeIndex
  */
-function nextSlide(index, elementList){
-    if(index < elementList.length){
-        index++;
-    } else {
-        index = 0;
+function getActiveIndex(){
+    const imgList = container.children;
+    for(let index = 0; index < imgList.length; index++){
+        const obj = imgList[index];
+        if(obj.classList.contains('active')){
+            activeIndex = index;
+        }
     }
-    console.log(index, elementList.length);
+}
+
+// --> function to set the image with index equal to activeIndex as active
+/**
+ * Function to set the image with index equal to activeIndex as active
+ */
+function changeImg(){
+    const imgList = container.children;
+    for(let index = 0; index < imgList.length; index++){
+        const obj = imgList[index];
+        if(activeIndex !== index && obj.classList.contains('active')){
+            obj.classList.remove('active')
+        } else if(activeIndex === index && !obj.classList.contains('active')){
+            obj.classList.add('active')
+        }
+    }
+}
+
+// --> function to loop forward
+function nextSlide(){
+    getActiveIndex();
+    if(activeIndex >= container.children.length - 1){
+        activeIndex = 0;
+    } else {
+        activeIndex++;
+    }
+    console.log(activeIndex);
+    changeImg();
+}
+
+// --> function to loop backward
+function prevSlide(){
+    getActiveIndex();
+    if(activeIndex === 0 ){
+        activeIndex = container.children.length - 1;
+    } else {
+        activeIndex--;
+    }
+    console.log(activeIndex);
+    changeImg();
 }
