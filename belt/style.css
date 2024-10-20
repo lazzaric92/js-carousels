@@ -11,8 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    animation: auto-scroll 20s linear infinite;
-    overflow: hidden;
+    animation: auto-scroll 60s linear infinite;
 }
 
 #belt img {
@@ -23,5 +22,5 @@
 
 @keyframes auto-scroll{
     0% { transform:translateX(0) };
-    100% { transform:translateX(-50%) };
+    100% { transform:translateX(-155.3%) };
 }
