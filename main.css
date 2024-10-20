@@ -22,3 +22,8 @@ main {
 main > section{
     margin-bottom: 3rem;
 }
+
+main > section h2 {
+    margin-bottom: 1.5rem;
+    font-family: cursive;
+}
