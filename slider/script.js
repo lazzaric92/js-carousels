@@ -56,6 +56,11 @@ document.addEventListener('DOMContentLoaded', function(){
         if(index === 0){
             dotEl.classList.add('active');
         }
+
+        dotEl.addEventListener('click', function(){
+            activeIndex = index;
+            changeImg();
+        })
     })
     
     forwBtn.addEventListener('click', function(){
