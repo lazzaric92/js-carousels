@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // ! DOM ELEMENTS
     const sliderEl = document.getElementById('slider');
+    const carouselEl = sliderEl.querySelector('div.carousel');
     const container = sliderEl.querySelector('.slider-container');
     const dotsContainer = sliderEl.querySelector('.dots-container');
     // buttons to change slide
@@ -10,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function(){
     
     // ! VARIABLES
     let activeIndex;
+    let autoClock = null;
+    let isAutoClockActive = false;
     const slides = [
         {
             'url' : "img/01.png",
@@ -61,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function(){
             activeIndex = index;
             changeImg();
         })
-    })
+    });
+
+    startAutoClock();
     
     forwBtn.addEventListener('click', function(){
         nextSlide();
@@ -70,6 +75,9 @@ document.addEventListener('DOMContentLoaded', function(){
     prevBtn.addEventListener('click', function(){
         prevSlide();
     });
+
+    carouselEl.addEventListener('mouseover', stopAutoClock);
+    carouselEl.addEventListener('mouseleave', startAutoClock);
     
     
     // ! FUNCTIONS
@@ -127,5 +135,23 @@ document.addEventListener('DOMContentLoaded', function(){
             activeIndex--;
         }
         changeImg();
+    }
+
+    // --> function to start the carousel automatic scroll
+    function startAutoClock(){
+        if(isAutoClockActive === false){
+            autoClock = setInterval(() => {
+                nextSlide();
+            }, 3000);
+            isAutoClockActive = true;
+        }
+    }
+
+    // --> function to stop the carousel automatic scroll
+    function stopAutoClock(){
+        if(isAutoClockActive === true){
+            clearInterval(autoClock);
+            isAutoClockActive = false;
+        }
     }
 });
