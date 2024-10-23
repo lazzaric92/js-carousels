@@ -1,11 +1,11 @@
-#belt .carousel{
+#belt .container{
     width: 100%;
     height: 200px;
     background-color: black;
     overflow: hidden;
 }
 
-#belt .container {
+#belt .carousel {
     height: 100%;
     width: 100%;
     display: flex;

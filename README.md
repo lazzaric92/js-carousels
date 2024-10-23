@@ -13,6 +13,9 @@ Con scorrimento automatico che si interrompe quando si passa il mouse sulla slid
 ### Nastro trasportatore
 Un po' retro ma fa ancora la sua figura. Bastano solo HTML e CSS, a meno che non si vogliano creare gli elementi con JavaScript.
 
+### Scorri, trascina
+
+
 
 
 ### ENGLISH
@@ -29,3 +32,5 @@ With automatic scrolling that stops when when in hover the slide or buttons and 
 
 ### Conveyor belt
 A bit old fashioned but still cool. All you need is HTML and CSS unless you want to create the elements with JavaScript.
+
+### Scroll it, drag it

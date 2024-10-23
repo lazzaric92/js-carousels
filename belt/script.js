@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
     // ! DOM ELEMENTS
     const beltEl = document.getElementById('belt');
-    const containerEl = beltEl.querySelector('div.container');
+    const carouselEl = beltEl.querySelector('div.carousel');
 
     // ! VARIABLES
     const images = [
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function(){
             const imgEl = document.createElement('img');
             imgEl.setAttribute('src', obj['url']);
             imgEl.setAttribute('alt', obj['alt']);
-            containerEl.appendChild(imgEl);
+            carouselEl.appendChild(imgEl);
         })
     }
 })
