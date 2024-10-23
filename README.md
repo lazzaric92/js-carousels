@@ -14,7 +14,7 @@ Con scorrimento automatico che si interrompe quando si passa il mouse sulla slid
 Un po' retro ma fa ancora la sua figura. Bastano solo HTML e CSS, a meno che non si vogliano creare gli elementi con JavaScript.
 
 ### Scorri, trascina
-
+Puoi scorrere le slide o cliccare e trascinarle. Scegli tu.
 
 
 
@@ -34,3 +34,4 @@ With automatic scrolling that stops when when in hover the slide or buttons and 
 A bit old fashioned but still cool. All you need is HTML and CSS unless you want to create the elements with JavaScript.
 
 ### Scroll it, drag it
+You can either scroll it or drag it. Your choice.
