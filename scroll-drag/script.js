@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function(){
     const carouselEl = scrollDragEl.querySelector('div.carousel');
 
     // ! VARIABLES
+    let isDown = false;  // <-- mouse behaviour, is true when clicking
+    let startX;
+    let scrollLeftVar;
     const slides = [
         {
             'url' : "img/01.png",
@@ -32,10 +35,44 @@ document.addEventListener('DOMContentLoaded', function(){
     ];
 
     slides.forEach((obj) => {
-        // creating carousel images
-        const imgEl = document.createElement('img');
-        imgEl.setAttribute('src', obj['url']);
-        imgEl.setAttribute('alt', obj['alt']);
-        carouselEl.appendChild(imgEl);
+        // creating carousel slides with background image
+        const slideEl = document.createElement('div');
+        slideEl.classList.add('slide');
+        slideEl.setAttribute('style', `background-image: url(${obj['url']})`);
+        slideEl.setAttribute('data-alt', obj['alt']);
+        carouselEl.appendChild(slideEl);
+    });
+
+    carouselEl.addEventListener('mousedown', event => {
+        isDown = true;
+        carouselEl.classList.add('active');
+        // # since the container is wider than the single slide 
+        startX = event.pageX - carouselEl.offsetLeft;
+        scrollLeftVar = carouselEl.scrollLeft;
+    });
+
+    carouselEl.addEventListener('mouseleave', () => {
+        isDown = false;
+        if(carouselEl.classList.contains('active')){
+            carouselEl.classList.remove('active');
+        }
+    });
+
+    carouselEl.addEventListener('mouseup', () => {
+        isDown = false;
+        if(carouselEl.classList.contains('active')){
+            carouselEl.classList.remove('active');
+        }
+    });
+
+    carouselEl.addEventListener('mousemove', event => {
+        if(!isDown){
+            return;
+        };
+        event.preventDefault();
+        const x = event.pageX - carouselEl.offsetLeft;
+        const SCROLL_SPEED = 3;
+        const walk = (x - startX) * SCROLL_SPEED;
+        carouselEl.scrollLeft = scrollLeftVar - walk;
     });
 })
