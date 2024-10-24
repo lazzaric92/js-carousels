@@ -3,14 +3,14 @@
 }
 
 #sequence .carousel,
-#sequence .slider-arrow,
-#sequence .slider-container{
+#sequence .carousel-arrow,
+#sequence .slides-container{
     display:flex;
     align-items: center;
 }
 
 #sequence .prev,
-#sequence .forw {
+#sequence .next {
     position: absolute;
     top: 0;
     height: 100%;
@@ -21,11 +21,11 @@
     display: none;
 }
 
-#sequence .forw {
+#sequence .next {
     right: 0;
 }
 
-#sequence .slider-arrow span {
+#sequence .carousel-arrow span {
     font-size: 1.2rem;
     margin: 0 .5rem;
     cursor: pointer;
@@ -42,17 +42,21 @@
     position: relative;
 }
 
-#sequence .slider-container{
+#sequence .carousel::-webkit-scrollbar {
+    height: 0;
+}
+
+#sequence .slides-container{
     width: 100%;
     overflow: auto;
     scroll-behavior: smooth;
     scrollbar-width: none;
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 16px;
     grid-auto-flow: column;
 }
 
-#sequence .slider-container img{
+#sequence .slides-container img{
     width: calc(var(--container-width) / 3.5);
     aspect-ratio: 3/2;
     object-fit: cover;

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const dotsContainer = sliderEl.querySelector('.dots-container');
     // buttons to change slide
     const prevBtn = sliderEl.querySelector('span.prev-btn');
-    const forwBtn = sliderEl.querySelector('span.forw-btn');
+    const nextBtn = sliderEl.querySelector('span.next-btn');
     
     // ! VARIABLES
     let activeIndex;
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     startAutoClock();
     
-    forwBtn.addEventListener('click', function(){
+    nextBtn.addEventListener('click', function(){
         nextSlide();
     });
     
