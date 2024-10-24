@@ -1,0 +1,54 @@
+#sequence .carousel,
+#sequence .slider-arrow,
+#sequence .slider-container{
+    display:flex;
+    align-items: center;
+}
+
+.prev {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: none;
+}
+
+.forw {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+#sequence .slider-arrow span {
+    font-size: 1.2rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+    background-color: white;
+    padding: .5rem;
+}
+
+#sequence .carousel{
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 900px;
+    height: 450px;
+    position: relative;
+}
+
+#sequence .slider-container{
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    display: grid;
+    grid-gap: 16px;
+    grid-auto-flow: column;
+}
+
+#sequence .slider-container img{
+    width: 160px; 
+    width: calc(900px / 6);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 12px;
+}
