@@ -18,7 +18,7 @@
 
 #sequence .prev {
     left: 0;
-    display: none;
+    /* display: none; */
 }
 
 #sequence .next {
@@ -39,6 +39,9 @@
     margin-bottom: 1.5rem;
     width: var(--container-width);
     margin: 0 auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
     position: relative;
 }
 
@@ -49,8 +52,6 @@
 #sequence .slides-container{
     width: 100%;
     overflow: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
     display: grid;
     grid-gap: 16px;
     grid-auto-flow: column;
@@ -61,4 +62,8 @@
     aspect-ratio: 3/2;
     object-fit: cover;
     border-radius: 12px;
+}
+
+#sequence .slides-container img:last-child{
+    margin-right: calc(var(--container-width) - (var(--container-width) / 3.5));
 }
