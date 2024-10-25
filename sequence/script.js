@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const sequenceEl = document.getElementById('sequence');
     const carouselEl = sequenceEl.querySelector('div.carousel');
     const containerEl = sequenceEl.querySelector('.slides-container');
-    const slideEl = sequenceEl.querySelector('.slides-container > img');
+    const slides = sequenceEl.querySelectorAll('.slides-container > img');
     // buttons to change slide
     const prevBtn = sequenceEl.querySelector('.carousel-arrow.prev');
     const nextBtn = sequenceEl.querySelector('.carousel-arrow.next');
@@ -12,11 +12,22 @@ document.addEventListener('DOMContentLoaded', function(){
     // ! VARIABLES
     const gap = 16;
     const carouselWidth = carouselEl.offsetWidth;
-    const slideWidth = slideEl.offsetWidth;
-    const slidesNumber = 3;  // <-- number of a fully visible slide
+    const slideWidth = slides[0].offsetWidth;
+    const slidesNumber = 3;  // <-- number of fully visible slides
     const width = carouselWidth - (slideWidth * slidesNumber) - (gap * slidesNumber);  // <-- width of the fully visible slides with their margin
-    // console.log(carouselWidth, width);
 
+    const slideOffLeft = slides[slidesNumber].offsetLeft;
+
+    
+
+    slides.forEach((slide, index) => {
+        if(index % slidesNumber === 0){
+            console.log(slide.offsetLeft);
+        }
+    });
+
+
+    // console.log(slides);
     nextBtn.addEventListener('click', moveForward);
     prevBtn.addEventListener('click', moveBackward);
     
@@ -24,24 +35,31 @@ document.addEventListener('DOMContentLoaded', function(){
     // ! FUNCTIONS
     function moveForward(){
         containerEl.scrollLeft += carouselWidth - width;
-        // containerEl.scrollBy(carouselWidth - width, 0);
-        // console.log("scrollWidth " + carouselEl.scrollWidth, "-- scrollWidth - width " + (carouselEl.scrollWidth - width), "-- scrollLeft + carouselWidth " + (carouselEl.scrollLeft + carouselWidth));
-        // if (carouselEl.scrollWidth !== 0) {
-        //     prevBtn.style.display = "flex";
-        // }
-        // if (carouselEl.scrollWidth - width <= carouselEl.scrollLeft + carouselWidth) {
-        //     nextBtn.style.display = "none";
-        // }
+        slides.forEach((slide, index) => {
+            if(index % slidesNumber === 0){
+                console.log(slide.offsetLeft);
+            }
+        });
     }
 
     function moveBackward(){
         containerEl.scrollLeft += width- carouselWidth;
-        // containerEl.scrollBy(-(carouselWidth), 0);
-        // if (carouselEl.scrollLeft - carouselWidth <= 0) {
-        //     prevBtn.style.display = "none";
-        // }
-        // if (!(carouselEl.scrollWidth - carouselWidth <= carouselEl.scrollLeft + carouselWidth)) {
-        //     nextBtn.style.display = "flex";
-        // }
+        slides.forEach((slide, index) => {
+            if(index % slidesNumber === 0){
+                console.log(slide.offsetLeft);
+            }
+        });
     }
 });
+
+
+/* 
+3n slide offsetLeft
+0 
+905 
+1810 
+2715 
+3621 
+4526 
+5431
+*/
