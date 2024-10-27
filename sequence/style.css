@@ -55,7 +55,7 @@
 
 
 #sequence .slides-container{
-    width: 98%;
+    width: 100%;
     overflow: auto;
     display: grid;
     grid-gap: var(--gap);
@@ -85,12 +85,12 @@
 }
 
 #sequence .slide:first-child{
-    /* margin-left: slide-width / 2 */
+    /* margin-left: slide-width / 2 + gap */
     margin-left: calc(calc((var(--container-width) - var(--gap) * var(--slides-number)) / var(--slides-number)) / 2 + var(--gap));
 }
 
 #sequence .slide:last-child{
-    /* margin-left: slide-width / 2 */
+    /* margin-left: slide-width / 2 + gap */
     margin-right: calc(calc((var(--container-width) - var(--gap) * var(--slides-number)) / var(--slides-number)) / 2);
 }
 

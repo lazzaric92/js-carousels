@@ -93,21 +93,28 @@ document.addEventListener('DOMContentLoaded', function(){
     //     },
     // ]
     const carouselWidth = carouselEl.offsetWidth;
+    const slideWidth = slides[0].offsetWidth;
+    const gap = 16;
     const slidesNumber = 3;  // <-- number of fully visible slides
-    let clicks =  Math.floor(slides.length / slidesNumber) - 1; // <-- number of clicks to get to the end of the carousel
-
+    let clicks = Math.floor(slides.length / slidesNumber); // <-- number of clicks to get to the end of the carousel
     
-    console.log(carouselWidth, containerEl.scrollLeft);
+    // console.log(carouselWidth, containerEl.scrollLeft);
     // prevBtn display check when reloading 
     if(containerEl.scrollLeft <= 0){
         prevBtn.style.display = 'none';
     } else {
         prevBtn.style.display = 'flex';
     };
+    // nextBtn display check when reloading 
+    if(containerEl.scrollLeft >= (carouselWidth - slideWidth - gap) * (clicks)){
+        nextBtn.style.display = 'none';
+    } else {
+        nextBtn.style.display = 'flex';
+    };
 
     prevBtn.addEventListener('click', () => {
-        containerEl.scrollBy(-carouselWidth, 0);
-        console.log(carouselWidth, containerEl.scrollLeft);
+        containerEl.scrollBy(-(carouselWidth - slideWidth - gap), 0);
+        // console.log(carouselWidth, containerEl.scrollLeft);
         // # prevBtn display
         if(containerEl.scrollLeft <= carouselWidth){
             prevBtn.style.display = 'none';
@@ -120,12 +127,12 @@ document.addEventListener('DOMContentLoaded', function(){
     })
 
     nextBtn.addEventListener("click", () => {
-        containerEl.scrollBy(carouselWidth, 0);
-        console.log(carouselWidth, containerEl.scrollLeft);
+        containerEl.scrollBy(carouselWidth - slideWidth - gap, 0);
+        // console.log(carouselWidth, containerEl.scrollLeft);
         prevBtn.style.display = 'flex';
 
         // # nextBtn display
-        if(containerEl.scrollLeft >= carouselWidth * (clicks - 1)){
+        if(containerEl.scrollLeft >= (carouselWidth - slideWidth - gap) * (clicks  - 1)){
             nextBtn.style.display = 'none';
         } else {
             nextBtn.style.display = 'flex';
