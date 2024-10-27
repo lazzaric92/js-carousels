@@ -21,7 +21,7 @@
 
 #sequence .prev {
     left: 25px;
-    display: none;
+    /* display: none; */
 }
 
 #sequence .next {
@@ -45,16 +45,11 @@
     justify-content: center;
     margin-bottom: 1.5rem;
     width: var(--container-width);
-    scroll-behavior: smooth;
-    scrollbar-width: none;
     scrollbar-color: transparent transparent;
     position: relative;
     transform: translateX(-(calc(calc((var(--container-width) - var(--gap) * var(--slides-number)) / var(--slides-number)) / 2)));
 }
 
-#sequence .carousel::-webkit-scrollbar {
-    height: 0;
-}
 
 #sequence .slides-container{
     width: 95%;
@@ -62,7 +57,7 @@
     display: grid;
     grid-gap: var(--gap);
     grid-auto-flow: column;
-    
+    scroll-behavior: smooth;
 }
 
 #sequence .slide{
