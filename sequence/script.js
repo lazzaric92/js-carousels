@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function(){
     //         "alt": "Bayonetta"
     //     },
     // ]
-    // const gap = 16;
     const carouselWidth = carouselEl.offsetWidth;
     const slidesNumber = 3;  // <-- number of fully visible slides
     let clicks =  Math.floor(slides.length / slidesNumber) - 1; // <-- number of clicks to get to the end of the carousel
@@ -131,7 +130,5 @@ document.addEventListener('DOMContentLoaded', function(){
         } else {
             nextBtn.style.display = 'flex';
         };
-        // se containerEl.scrollLeft >= carouselWidth * numero di click
-            // allora nextBtn non si deve vedere più
     });
 });

@@ -16,6 +16,8 @@ Un po' retro ma fa ancora la sua figura. Bastano solo HTML e CSS, a meno che non
 ### Scorri, trascina
 Puoi scorrere le slide o cliccare e trascinarle. Scegli tu.
 
+### Sequenza
+Il carosello tipico delle app di streaming e simili.
 
 
 ### ENGLISH
@@ -35,3 +37,6 @@ A bit old fashioned but still cool. All you need is HTML and CSS unless you want
 
 ### Scroll it, drag it
 You can either scroll it or drag it. Your choice.
+
+### Sequence
+The carousel used in streaming apps and the like.
