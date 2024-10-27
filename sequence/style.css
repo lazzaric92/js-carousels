@@ -21,6 +21,7 @@
 
 #sequence .prev {
     left: 25px;
+    display: none;
 }
 
 #sequence .next {
@@ -81,6 +82,11 @@
 #sequence .slide:first-child{
     /* margin-left: slide-width / 2 */
     margin-left: calc(calc((var(--container-width) - var(--gap) * var(--slides-number)) / var(--slides-number)) / 2);
+}
+
+#sequence .slide:last-child{
+    /* margin-left: slide-width / 2 */
+    margin-right: calc(calc((var(--container-width) - var(--gap) * var(--slides-number)) / var(--slides-number)) / 2);
 }
 
 #sequence .overlay{

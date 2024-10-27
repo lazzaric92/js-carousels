@@ -95,13 +95,46 @@ document.addEventListener('DOMContentLoaded', function(){
     const gap = 16;
     const carouselWidth = carouselEl.offsetWidth;
     
-    console.log(carouselWidth)
+    // prevBtn display check when reloading 
+    if(containerEl.scrollLeft === 0){
+        prevBtn.style.display = 'none';
+    } else {
+        prevBtn.style.display = 'flex';
+    };
 
     prevBtn.addEventListener('click', () => {
         containerEl.scrollBy(-carouselWidth, 0);
+        console.log(carouselWidth, containerEl.scrollLeft);
+        // # prevBtn display
+        if(containerEl.scrollLeft === 0){
+            prevBtn.style.display = 'none';
+        } else {
+            prevBtn.style.display = 'flex';
+        };
+
+        // # nextBtn display
+        if(containerEl.scrollLeft % carouselWidth !== 0){
+            nextBtn.style.display = 'none';
+        } else {
+            nextBtn.style.display = 'flex';
+        };
     })
 
     nextBtn.addEventListener("click", () => {
         containerEl.scrollBy(carouselWidth, 0);
+        console.log(carouselWidth, containerEl.scrollLeft);
+        // # prevBtn display
+        if(containerEl.scrollLeft === 0){
+            prevBtn.style.display = 'none';
+        } else {
+            prevBtn.style.display = 'flex';
+        };
+
+        // # nextBtn display
+        if(containerEl.scrollLeft % carouselWidth !== 0){
+            nextBtn.style.display = 'none';
+        } else {
+            nextBtn.style.display = 'flex';
+        };
     });
 });
