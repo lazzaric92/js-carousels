@@ -4,30 +4,30 @@
     background-color: black;
     overflow: hidden;
     position: relative;
-}
 
-#belt .carousel {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    animation: auto-scroll 60s linear infinite;
-}
+    .carousel {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: auto-scroll 60s linear infinite;
+    }
 
-#belt img {
-    margin: 0 2rem;
-    height: 50%;
-    width: auto;
-}
+    img {
+        margin: 0 2rem;
+        height: 50%;
+        width: auto;
+    }
 
-#belt .overlay{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.50) 6%, rgba(0,0,0,0) 12%, rgba(0,0,0,0) 88%, rgba(0,0,0,0.50) 94%, rgba(0,0,0,0.75) 100%);
+    .overlay{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.50) 6%, rgba(0,0,0,0) 12%, rgba(0,0,0,0) 88%, rgba(0,0,0,0.50) 94%, rgba(0,0,0,0.75) 100%);
+    }
 }
 
 @keyframes auto-scroll{
